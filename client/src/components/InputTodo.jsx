@@ -4,6 +4,7 @@ import axios from "axios";
 const InputTodo = () => {
   const [description, setDescription] = useState("");
   const [title, setTitle] = useState("");
+  const [completed, setCompleted] = useState(false);
 
 
   // const onSubmitForm = async e => {
@@ -27,13 +28,13 @@ const InputTodo = () => {
 
     axios
       .post("http://localhost:4000/api/todos", {
-        description, title
+        description, title, completed
     
       })
       .then((response) => {
         setDescription(response.data.description);
-        console.log('tititititi', response.data.title)
         setTitle(response.data.title)
+        setCompleted(response.data.completed);
         window.location = "/";
       })
       .catch((err) => {

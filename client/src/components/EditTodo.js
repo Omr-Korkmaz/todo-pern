@@ -3,7 +3,8 @@ import axios from "axios";
 
 const EditTodo = ({ todo }) => {
   const [description, setDescription] = useState(todo.description);
-//   const [title, setTitle] = useState(todo.title);
+  const [title, setTitle] = useState(todo.title);
+  
 
 
   //edit description function
@@ -13,10 +14,11 @@ const EditTodo = ({ todo }) => {
 
     axios
       .put(`http://localhost:4000/api/todos/${todo.todo_id}`, {
-        description,
+        description, title
       })
       .then((response) => {
-        setDescription(response.data);
+        setDescription(response.data.description);
+        setTitle(response.data.title)
         window.location = "/";
       })
       .catch((err) => {
@@ -41,7 +43,8 @@ const EditTodo = ({ todo }) => {
       <div
         class="modal"
         id={`id${todo.todo_id}`}
-        onClick={() => setDescription(todo.description)}
+        onClick={() => {setTitle(todo.title)
+            setDescription(todo.description)}}
       >
         <div class="modal-dialog">
           <div class="modal-content">
@@ -51,7 +54,8 @@ const EditTodo = ({ todo }) => {
                 type="button"
                 class="close"
                 data-dismiss="modal"
-                onClick={() => setDescription(todo.description)}
+                onClick={() => {setTitle(todo.title)
+                     setDescription(todo.description)}}
               >
                 &times;
               </button>
@@ -64,12 +68,12 @@ const EditTodo = ({ todo }) => {
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
               />
-                   {/* <input
+                   <input
                 type="text"
                 className="form-control"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-              /> */}
+              />
             </div>
 
             <div class="modal-footer">
@@ -85,8 +89,8 @@ const EditTodo = ({ todo }) => {
                 type="button"
                 class="btn btn-danger"
                 data-dismiss="modal"
-                onClick={() => setDescription(todo.description)}
-              >
+                onClick={() => {setTitle(todo.title)
+                    setDescription(todo.description)}}              >
                 Close
               </button>
             </div>

@@ -5,10 +5,10 @@ const router = express.Router();
 
 router.post("/todos", async (req, res) => {
     try {
-      const { description, title } = req.body;
+      const { description, title, completed } = req.body;
       const newTodo = await pool.query(
-        "INSERT INTO todolist (description, title) VALUES($1, $2) RETURNING *",
-        [description, title]
+        "INSERT INTO todolist (description, title, completed) VALUES($1, $2, $3) RETURNING *",
+        [description, title, completed]
       );
 
   
@@ -47,9 +47,12 @@ router.put("/todos/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const { description } = req.body;
+    const {title} = req.body;
+    const {completed} = req.body;
+
     const updateTodo = await pool.query(
-      "UPDATE todolist SET description = $1 WHERE todo_id = $2",
-      [description, id]
+      "UPDATE todolist SET description = $1 SET title = $3 SET completed = $4 WHERE todo_id = $2",
+      [description, id, title, completed ]
     );
 
     res.json("Todo was updated!");
