@@ -1,5 +1,6 @@
 import React, {useState } from "react";
 import axios from "axios";
+import './inputTodo.css'
 
 const InputTodo = () => {
   const [description, setDescription] = useState("");
@@ -43,24 +44,22 @@ const InputTodo = () => {
   }
 
   return (
-    <>
-      <h1 className="text-center mt-5">Todo List</h1>
-      <form className="d-flex mt-5" onSubmit={onSubmitForm}>
+    <section className="input-container">
+      
+      <form className="form"  onSubmit={onSubmitForm}>
         <input
           type="text"
-          className="form-control"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
          <input
           type="text"
-          className="form-control"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <button className="btn btn-success">Add</button>
+        <button >Add</button>
       </form>
-    </>
+    </section>
   );
 };
 

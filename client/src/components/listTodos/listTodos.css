@@ -1,0 +1,28 @@
+*{
+    text-decoration: none;
+}
+.todo-container{
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+}
+
+.todo{
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 100px;
+    border: 1px solid black;
+    align-items: center;
+    gap: 10px;
+    margin: 5px;
+    background-color: antiquewhite;
+}
+.todo ul{
+    list-style: none;
+}

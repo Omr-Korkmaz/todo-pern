@@ -1,7 +1,8 @@
 import React, {useEffect, useState } from "react";
 import axios from "axios";
+import './listTodos.css'
 
-import EditTodo from "./EditTodo";
+// import EditTodo from "./editTodo/EditTodo";
 
 const ListTodos = () => {
   const [todos, setTodos] = useState([]);
@@ -35,38 +36,27 @@ const ListTodos = () => {
   console.log(todos);
 
   return (
-    <>
-      {" "}
-      <table class="table mt-5 text-center">
-        <thead>
-          <tr>
-            <th>Description</th>
-            <th>Edit</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
+    <section className="todo-container">
+
+     
           {todos.map((todo) => (
-            <tr key={todo.todo_id}>
-              <td>{todo.description}</td>
-              <td>{todo.title}</td>
-              <td>
-                <EditTodo todo={todo} />
-              </td>
-              <td>
-                <button
-                  className="btn btn-danger"
+            <div className="todo">
+            <ul key={todo.todo_id}>
+                  <li>{todo.description}</li>
+                  <li>{todo.title}</li>
+                  <li>
+                      {/* <EditTodo todo={todo} /> */}
+                  </li>
+              </ul><button
                   onClick={() => deleteTodo(todo.todo_id)}
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </>
-  );
+              >
+                      Delete
+                  </button>
+                  </div>       
+ 
+  ))};
+  </section>
+          );
 };
 
 export default ListTodos;

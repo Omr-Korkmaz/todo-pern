@@ -1,0 +1,28 @@
+.input-container{
+    
+    margin: 20px auto;
+
+
+    width: 60%;
+    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+align-items: center;
+gap: 20px;
+}
+.form{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+}
+input{
+    font-size: 1.5rem;
+}
+button{
+    width: 150px;
+}
