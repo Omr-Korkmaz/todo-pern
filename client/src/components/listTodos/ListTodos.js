@@ -2,7 +2,7 @@ import React, {useEffect, useState } from "react";
 import axios from "axios";
 import './listTodos.css'
 
-// import EditTodo from "./editTodo/EditTodo";
+import EditTodo from "../editTodo/EditTodo";
 
 const ListTodos = () => {
   const [todos, setTodos] = useState([]);
@@ -45,7 +45,7 @@ const ListTodos = () => {
                   <li>{todo.description}</li>
                   <li>{todo.title}</li>
                   <li>
-                      {/* <EditTodo todo={todo} /> */}
+                      <EditTodo todo={todo} />
                   </li>
               </ul><button
                   onClick={() => deleteTodo(todo.todo_id)}

@@ -28,6 +28,7 @@ const EditTodo = ({ todo }) => {
 
   return (
     <>
+    
       <button
         class="link-1"
         type="button"
